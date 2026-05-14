@@ -407,13 +407,55 @@
     .contact h2{font-size:44px}
     .section-title{font-size:34px}
     .nav-links{display:none}
+    /* fix profile card on tablet/mobile — remove 3D tilt, allow glow ring */
+    .profile-card{
+      transform:none;
+      overflow:visible;
+      max-width:440px;
+      margin:0 auto;
+      order:-1; /* show photo card above text on mobile */
+    }
+    .about-prose{ order:1 }
+    .pc-photo-wrap{width:150px; height:150px}
+    /* stop spin on mobile — prevents iOS rendering issues */
+    .pc-photo-wrap,.pc-photo,.pc-photo-wrap::after{animation:none}
+    .brand .ring{animation:none}
   }
   @media (max-width:560px){
-    h1.hero-title{font-size:44px}
-    .hero-quick{gap:24px}
+    h1.hero-title{font-size:40px; letter-spacing:-.02em}
+    .hero-role{font-size:16px}
+    .hero-desc{font-size:16px}
+    .hero-quick{gap:18px}
+    .hero-quick .q .v{font-size:22px}
+    .hero-ctas{flex-direction:column; align-items:center}
+    .hero-ctas .btn{width:100%; max-width:300px; justify-content:center}
+    section.s{padding:80px 0}
+    .contact{padding:100px 0 70px}
+    .contact h2{font-size:36px}
+    .contact p{font-size:16px}
+    .contact-row{flex-direction:column; align-items:center}
+    .contact-row .btn{width:100%; max-width:320px; justify-content:center}
+    .contact-links{gap:8px}
+    .contact-links a{font-size:13px; padding:9px 14px}
     .skills-grid{grid-template-columns: 1fr}
-    .wrap{padding:0 22px}
+    .wrap{padding:0 18px}
     .tl-head{flex-direction:column; gap:8px}
+    .tl-card{padding:20px}
+    .section-title{font-size:28px}
+    .section-lede{font-size:16px; margin:0 0 40px}
+    .nav-inner{padding:14px 18px}
+    .nav-cta{font-size:13px; padding:9px 14px}
+    .profile-card{padding:24px; max-width:100%}
+    .pc-photo-wrap{width:120px; height:120px}
+    .pc-photo-wrap::after{inset:-8px}
+    .pc-name{font-size:19px}
+    .proj{padding:24px; min-height:auto}
+    .proj-title{font-size:22px}
+  }
+  @media (max-width:380px){
+    h1.hero-title{font-size:34px}
+    .hero-role{font-size:15px}
+    .nav-cta{display:none}
   }
 </style>
 </head>
@@ -657,7 +699,7 @@
           Gave engineering and finance a shared view of cloud spend — enabling data-driven cost-optimization decisions.
         </div>
         <div class="proj-stack">
-          <span>React</span><span>Flask</span><span>AWS Cost API</span><span>Docker</span><span>EC2</span><span>Python</span>
+          <span>React</span><span>Flask</span><span>Python</span><span>AWS Cost API</span><span>Docker</span><span>EC2</span>
         </div>
       </article>
     </div>
@@ -695,7 +737,7 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
         </div>
         <h4>CI/CD &amp; Automation</h4>
-        <ul><li>Git</li><li>GitHub Actions</li><li>Azure DevOps</li><li>Jenkins</li><li>GitLab CI</li><li>AWS CodePipeline</li></ul>
+        <ul><li>Git</li><li>GitHub</li><li>Azure DevOps</li><li>Jenkins</li><li>GitLab</li><li>AWS CodePipeline</li></ul>
       </div>
 
       <div class="skill-cat reveal">
@@ -722,13 +764,13 @@
         <ul><li>Python</li><li>Shell Scripting</li><li>SQL</li><li>C</li><li>C++</li></ul>
       </div>
 
-      <div class="skill-cat reveal">
+      <!-- <div class="skill-cat reveal">
         <div class="icon" style="background:rgba(94,234,212,.10); color:var(--green); border-color:rgba(94,234,212,.30)">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
         </div>
         <h4>Operating Systems</h4>
         <ul><li>Linux</li><li>Windows</li></ul>
-      </div>
+      </div> -->
     </div>
   </div>
 </section>
@@ -748,7 +790,7 @@
       </button>
       <a class="btn btn-ghost" href="tel:+917822960075">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        +91 78229 60075
+        +91 7822960075
       </a>
       <a class="btn btn-ghost" href="uploads/Aniket_Karpe_Resume_updated.pdf" download="Aniket_Karpe_Resume.pdf" data-action="download-cv">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
